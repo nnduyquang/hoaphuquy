@@ -1,0 +1,30 @@
+.title-category {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+  background: #464646;
+  padding: 10px 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.list-category {
+  background-color: #f8f8f8;
+  ul {
+    li {
+      border-top: 1px solid #dee2e5;
+      a {
+        text-decoration: none;
+        padding: 12px 20px;
+        display: block;
+        color: #3f3f3f;
+        transition: all 300ms ease;
+        &:hover,&.active
+        {
+          color: #F4CDC7;
+
+        }
+      }
+
+    }
+  }
+}

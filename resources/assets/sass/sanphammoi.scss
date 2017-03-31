@@ -1,0 +1,56 @@
+#san-pham-moi {
+  border: 1px solid #dee2e5;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  .title-san-pham {
+    h3 {
+      background-color: #ec6a54;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      background: #ec6a54;
+      margin: 0;
+    }
+  }
+  .wrap-san-pham {
+    .one-row {
+      display: flex;
+      flex-wrap: wrap;
+      .item_row {
+        text-align: center;
+        margin-bottom: 10px;
+        a {
+          img {
+            padding: 10px;
+            width: 100%;
+            height: 200px;
+          }
+        }
+        .info-sanpham {
+          display: block;
+          h3 {
+            text-transform: uppercase;
+            a {
+              display: block;
+              padding: 10px;
+              text-decoration: none;
+              color: #0f0f0f;
+              transition: all 300ms ease;
+              &.hover {
+                color: #EE7B68;
+              }
+            }
+          }
+          .btn-primary {
+            a {
+              text-decoration: none;
+              color: white;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

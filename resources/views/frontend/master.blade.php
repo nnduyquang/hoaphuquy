@@ -17,8 +17,12 @@
 
 </header>
 <div id="main-banner">
-    @include('menu.menu')
-    @yield('slider')
+    <div class="col-md-12">
+        <div class="row">
+            @include('menu.menu')
+            @yield('slider')
+        </div>
+    </div>
 </div>
 @yield('container')
 <div class="footer">
