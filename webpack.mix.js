@@ -15,18 +15,28 @@ mix.styles([
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
     // 'node_modules/jquery.mmenu/dist/js/jquery.mmenu.min.js',
-    // 'bower_components/slick-carousel/slick/slick.js',
+    'bower_components/slick-carousel/slick/slick.js',
 ], 'public/js/core.js')
     .styles([
         'bower_components/bootstrap/dist/css/bootstrap.min.css',
         'bower_components/font-awesome/css/font-awesome.min.css',
         // 'node_modules/jquery.mmenu/dist/css/jquery.mmenu.all.css',
+        'bower_components/slick-carousel/slick/slick.css',
     ], 'public/css/app.css')
     .copy([
         'bower_components/bootstrap/fonts/**',
         'bower_components/font-awesome/fonts/**'
     ], 'public/fonts')
+    .copy([
+        'bower_components/AdminLTE/dist/css/AdminLTE.min.css',
+        'bower_components/AdminLTE/dist/css/skins/skin-blue.min.css'
+    ],'public/css')
+    .copy('bower_components/AdminLTE/dist/js/app.min.js','public/js')
     .sass('resources/assets/sass/frontend.scss', 'public/css').options({processCssUrls: false})
+    .sass('resources/assets/sass/login.scss','public/css').options({processCssUrls: false})
     .styles([
         'resources/assets/js/scripts.js'
     ], 'public/js/scripts.js')
+    .styles([
+        'resources/assets/js/login.js'
+    ], 'public/js/login.js')

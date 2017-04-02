@@ -24,10 +24,22 @@
         </div>
     </div>
 </div>
-@yield('container')
-<div class="footer">
-    {{--@include('frontend.footer.footer')--}}
+@yield('breadcrumb')
+<div id="main-contain" class="container col-md-12">
+    <div class="empty-space"></div>
+    <div class="row">
+        <div class="col-md-3">
+            @include('frontend.trangchu.danhmuc')
+        </div>
+        <div class="col-md-9">
+            @yield('container')
+        </div>
+    </div>
 </div>
+
+
+@include('common.footer')
+
 {{ Html::script('js/core.js') }}
 @yield('scripts')
 {{ Html::script('js/scripts.js') }}

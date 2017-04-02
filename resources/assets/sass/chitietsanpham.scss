@@ -1,0 +1,22 @@
+#wrap-chi-tiet-san-pham{
+  margin-bottom: 30px;
+  #wrap-tom-tat{
+    img{
+      width: 100%;
+      height: 300px;
+    }
+  }
+  #wrap-thong-tin-chi-tiet{
+    margin-top: 10px;
+    .thong-tin-chi-tiet{
+      background-color: white;
+      height: auto;
+    }
+    .tab-content{
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+    }
+  }
+}

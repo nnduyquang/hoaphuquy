@@ -1,0 +1,79 @@
+.breadcrumb{
+  background: #eee;
+  padding: 37px 0;
+  overflow: hidden;
+  margin-bottom: 25px;
+  h3{
+    font-size: 15px;
+    text-transform: uppercase;
+    float: left;
+  }
+  .blog-slug{
+    float: right;
+    margin: 0;
+    color: #a1a1a1;
+    font-size: 13px;
+    a{
+      text-decoration: none;
+      color: #a1a1a1;
+    }
+
+  }
+}
+#wrap-danh-sach-san-pham{
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .list-item {
+    display: flex;
+    //width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(62, 67, 98, 0.11);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin: 10px 0px 10px;
+    background-color: #fff;
+  }
+  .list-content {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 8px;
+    a {
+      img {
+        width: 100%;
+        height: 200px;
+        border-radius: 8px 8px 0 0;
+      }
+    }
+    h2{
+      text-transform: uppercase;
+      margin-top: 10px;
+      a {
+        display: block;
+        text-decoration: none;
+        color: rgba(107, 118, 130, .91);
+        transition: all 300ms ease;
+        &.hover {
+          color: #EE7B68;
+        }
+      }
+    }
+    .btn-primary {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+  .list-content p {
+    flex: 1 0 auto;
+  }
+}
