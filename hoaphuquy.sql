@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2017 at 01:19 AM
+-- Generation Time: Apr 03, 2017 at 12:11 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -41,7 +41,9 @@ CREATE TABLE `danhmucs` (
 
 INSERT INTO `danhmucs` (`id`, `display_name`, `user_id`, `created_at`, `updated_at`, `path`) VALUES
 (2, 'bulong haha', 1, '2017-04-02 09:24:26', '2017-04-02 09:24:26', 'bulong-haha'),
-(3, 'bulong hahu', 1, '2017-04-02 09:25:15', '2017-04-02 09:25:15', 'bulong-hahu');
+(3, 'bulong hahu', 1, '2017-04-02 09:25:15', '2017-04-02 09:25:15', 'bulong-hahu'),
+(4, 'bulong hahuhi', 1, '2017-04-02 19:35:59', '2017-04-02 19:35:59', 'bulong-hahuhi'),
+(5, 'bulong hahuha', 1, '2017-04-02 19:36:41', '2017-04-02 19:36:41', 'bulong-hahuha');
 
 -- --------------------------------------------------------
 
@@ -65,7 +67,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2017_04_02_101606_entrust_setup_tables', 2),
 (4, '2017_04_02_140132_danhmucs_tables', 3),
 (5, '2017_04_02_141854_add_column_path_danhmucs_table', 4),
-(6, '2017_04_02_144654_drop_column_name_danhmucs_table', 5);
+(6, '2017_04_02_144654_drop_column_name_danhmucs_table', 5),
+(7, '2017_04_03_081514_create_sanphams_table', 6),
+(8, '2017_04_03_092516_add_path_anhsanpham_to_sanphams_table', 7);
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,11 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 (9, 'danhmuc-list', 'Display Danh Muc Listing', 'See only Danh Muc Of Role', '2017-04-02 09:06:32', '2017-04-02 09:06:32'),
 (10, 'danhmuc-create', 'Create Danh Muc', 'Create New Danh Muc', '2017-04-02 09:06:32', '2017-04-02 09:06:32'),
 (11, 'danhmuc-edit', 'Edit Danh Muc', 'Edit Danh Muc', '2017-04-02 09:06:32', '2017-04-02 09:06:32'),
-(12, 'danhmuc-delete', 'Delete Danh Muc', 'Delete Danh Muc', '2017-04-02 09:06:32', '2017-04-02 09:06:32');
+(12, 'danhmuc-delete', 'Delete Danh Muc', 'Delete Danh Muc', '2017-04-02 09:06:32', '2017-04-02 09:06:32'),
+(13, 'sanpham-list', 'Display Sản Phẩm Listing', 'See only Sản Phẩm Of Role', '2017-04-03 02:41:38', '2017-04-03 02:41:38'),
+(14, 'sanpham-create', 'Create Sản Phẩm', 'Create New Sản Phẩm', '2017-04-03 02:41:38', '2017-04-03 02:41:38'),
+(15, 'sanpham-edit', 'Edit Sản Phẩm', 'Edit Sản Phẩm', '2017-04-03 02:41:38', '2017-04-03 02:41:38'),
+(16, 'sanpham-delete', 'Delete Sản Phẩm', 'Delete Sản Phẩm', '2017-04-03 02:41:38', '2017-04-03 02:41:38');
 
 -- --------------------------------------------------------
 
@@ -180,6 +188,26 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sanphams`
+--
+
+CREATE TABLE `sanphams` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noidung` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lienhegia` tinyint(1) NOT NULL,
+  `danhmuc_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `anhsanpham` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -259,6 +287,15 @@ ALTER TABLE `role_user`
   ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `sanphams`
+--
+ALTER TABLE `sanphams`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `sanphams_path_unique` (`path`),
+  ADD KEY `sanphams_user_id_foreign` (`user_id`),
+  ADD KEY `sanphams_danhmuc_id_foreign` (`danhmuc_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -273,22 +310,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `danhmucs`
 --
 ALTER TABLE `danhmucs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sanphams`
+--
+ALTER TABLE `sanphams`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -317,6 +359,13 @@ ALTER TABLE `permission_role`
 ALTER TABLE `role_user`
   ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sanphams`
+--
+ALTER TABLE `sanphams`
+  ADD CONSTRAINT `sanphams_danhmuc_id_foreign` FOREIGN KEY (`danhmuc_id`) REFERENCES `danhmucs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `sanphams_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
