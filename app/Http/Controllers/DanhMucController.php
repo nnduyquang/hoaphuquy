@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DanhMuc;
+use App\Http\Requests\DanhMucRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -38,23 +39,19 @@ class DanhMucController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DanhMucRequest $request)
     {
         $danhmuc = new DanhMuc();
         $display_name = $request->input('display_name');
+        $danhmuc->display_name = $display_name;
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
         $path = preg_replace('/\s+/', ' ', $path);
         $path = str_replace(' ', '-', $path);
-        if (!$this->checkIfExistValue($path)) {
-            $danhmuc->display_name = $display_name;
-            $danhmuc->path = $path;
-            $danhmuc->user_id = Auth::user()->id;
-            $danhmuc->save();
-            return redirect()->route('danhmucs.index')
-                ->with('success', 'Danh Mục store successfully');
-        } else {
-            return false;
-        }
+        $danhmuc->path = $path;
+        $danhmuc->user_id = Auth::user()->id;
+        $danhmuc->save();
+        return redirect()->route('danhmucs.index')
+            ->with('success', 'Danh Mục store successfully');
 
     }
 
@@ -88,23 +85,19 @@ class DanhMucController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DanhMucRequest $request, $id)
     {
         $danhmuc = DanhMuc::find($id);
         $display_name = $request->input('display_name');
+        $danhmuc->display_name = $display_name;
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
         $path = preg_replace('/\s+/', ' ', $path);
         $path = str_replace(' ', '-', $path);
-        if (!$this->checkIfExistValue($path)) {
-            $danhmuc->display_name = $display_name;
-            $danhmuc->path = $path;
-            $danhmuc->user_id = Auth::user()->id;
-            $danhmuc->save();
-            return redirect()->route('danhmucs.index')
-                ->with('success', 'Danh Mục update successfully');
-        } else {
-            return false;
-        }
+        $danhmuc->path = $path;
+        $danhmuc->user_id = Auth::user()->id;
+        $danhmuc->save();
+        return redirect()->route('danhmucs.index')
+            ->with('success', 'Danh Mục update successfully');
 
     }
 

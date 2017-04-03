@@ -51,5 +51,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sml_admin/danh_muc/{id}/edit', ['as' => 'danhmucs.edit', 'uses' => 'DanhMucController@edit', 'middleware' => ['permission:danhmuc-edit']]);
     Route::patch('sml_admin/danh_muc/{id}', ['as' => 'danhmucs.update', 'uses' => 'DanhMucController@update', 'middleware' => ['permission:danhmuc-edit']]);
     Route::delete('sml_admin/danh_muc/{id}', ['as' => 'danhmucs.destroy', 'uses' => 'DanhMucController@destroy', 'middleware' => ['permission:danhmuc-delete']]);
-
+    //Sản Phẩm
+    Route::get('sml_admin/san_pham', ['as' => 'sanphams.index', 'uses' => 'SanPhamController@index', 'middleware' => ['permission:sanpham-list|sanpham-create|sanpham-edit|sanpham-delete']]);
+    Route::post('sml_admin/san_pham/create', ['as' => 'sanphams.store', 'uses' => 'SanPhamController@store', 'middleware' => ['permission:sanpham-create']]);
+    Route::get('sml_admin/san_pham/create', ['as' => 'sanphams.create', 'uses' => 'SanPhamController@create', 'middleware' => ['permission:sanpham-create']]);
+    Route::get('sml_admin/san_pham/{id}/edit', ['as' => 'sanphams.edit', 'uses' => 'SanPhamController@edit', 'middleware' => ['permission:sanpham-edit']]);
+    Route::patch('sml_admin/san_pham/{id}', ['as' => 'sanphams.update', 'uses' => 'SanPhamController@update', 'middleware' => ['permission:sanpham-edit']]);
+    Route::delete('sml_admin/san_pham/{id}', ['as' => 'sanphams.destroy', 'uses' => 'SanPhamController@destroy', 'middleware' => ['permission:sanpham-delete']]);
 });

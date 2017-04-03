@@ -54,25 +54,45 @@ class PermissionTableSeeder extends Seeder
 //                'display_name' => 'Delete User',
 //                'description' => 'Delete User'
 //            ],
+//            [
+//                'name' => 'danhmuc-list',
+//                'display_name' => 'Display Danh Muc Listing',
+//                'description' => 'See only Danh Muc Of Role'
+//            ],
+//            [
+//                'name' => 'danhmuc-create',
+//                'display_name' => 'Create Danh Muc',
+//                'description' => 'Create New Danh Muc'
+//            ],
+//            [
+//                'name' => 'danhmuc-edit',
+//                'display_name' => 'Edit Danh Muc',
+//                'description' => 'Edit Danh Muc'
+//            ],
+//            [
+//                'name' => 'danhmuc-delete',
+//                'display_name' => 'Delete Danh Muc',
+//                'description' => 'Delete Danh Muc'
+//            ]
             [
-                'name' => 'danhmuc-list',
-                'display_name' => 'Display Danh Muc Listing',
-                'description' => 'See only Danh Muc Of Role'
+                'name' => 'sanpham-list',
+                'display_name' => 'Display Sản Phẩm Listing',
+                'description' => 'See only Sản Phẩm Of Role'
             ],
             [
-                'name' => 'danhmuc-create',
-                'display_name' => 'Create Danh Muc',
-                'description' => 'Create New Danh Muc'
+                'name' => 'sanpham-create',
+                'display_name' => 'Create Sản Phẩm',
+                'description' => 'Create New Sản Phẩm'
             ],
             [
-                'name' => 'danhmuc-edit',
-                'display_name' => 'Edit Danh Muc',
-                'description' => 'Edit Danh Muc'
+                'name' => 'sanpham-edit',
+                'display_name' => 'Edit Sản Phẩm',
+                'description' => 'Edit Sản Phẩm'
             ],
             [
-                'name' => 'danhmuc-delete',
-                'display_name' => 'Delete Danh Muc',
-                'description' => 'Delete Danh Muc'
+                'name' => 'sanpham-delete',
+                'display_name' => 'Delete Sản Phẩm',
+                'description' => 'Delete Sản Phẩm'
             ]
 
         ];

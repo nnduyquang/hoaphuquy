@@ -10,10 +10,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>AdminLTE 2 | Starter</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-{{ Html::style('css/app.css') }}
+    {{ Html::style('css/app.css') }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     {{ Html::style('css/AdminLTE.min.css') }}
     {{ Html::style('css/skin-blue.min.css') }}
+    {{ Html::style('css/backend.css') }}
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -233,7 +234,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @if(Auth::user()->can('role-list'))
                     <li><a href="{{ route('roles.index') }}"><i class="fa fa-link"></i> <span>Quyền</span></a></li>
                 @endif
-                <li><a href="{{ route('danhmucs.index') }}"><i class="fa fa-link"></i> <span>Sản Phẩm</span></a></li>
+                <li><a href="{{ route('danhmucs.index') }}"><i class="fa fa-link"></i> <span>Danh Mục</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>Sản Phẩm</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -353,6 +355,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 {{ Html::script('js/core.js') }}
 {{ Html::script('js/app.min.js') }}
+{{ Html::script('js/backend.js') }}
 
 </body>
 </html>
