@@ -34,16 +34,18 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $sanpham->display_name }}</td>
                 <td>{{ $sanpham->path }}</td>
-                <td>{{ $sanpham->url }}</td>
+                <td>
+                    {{ $sanpham->anhsanpham }}
+                </td>
                 <td>{{ $sanpham->danhmucs->display_name }}</td>
                 <td>{{ $sanpham->users->name }}</td>
                 <td>
                     @permission(('sanpham-edit'))
-                    <a class="btn btn-primary" href="{{ route('sanphams.edit',$danhmuc->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('sanphams.edit',$sanpham->id) }}">Edit</a>
                     @endpermission
                     @permission(('sanpham-delete'))
-                    {!! Form::open(['method' => 'DELETE','route' => ['sanphams.destroy', $danhmuc->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Xóa Danh Mục', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::open(['method' => 'DELETE','route' => ['sanphams.destroy', $sanpham->id],'style'=>'display:inline']) !!}
+                    {!! Form::submit('Xóa Sản Phẩm', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                     @endpermission
                 </td>

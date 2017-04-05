@@ -8,7 +8,7 @@ class SanPham extends Model
 {
     protected $table = 'sanphams';
     protected $fillable = [
-        'display_name', 'price','noidung','lienhegia','danhmuc_id', 'user_id'
+        'display_name', 'price','noidung','lienhegia','danhmuc_id', 'user_id','anhsanpham','path'
     ];
     protected $primaryKey = 'id';
 

@@ -28,10 +28,10 @@ mix.styles([
     .copy([
         'bower_components/bootstrap/fonts/**',
         'bower_components/font-awesome/fonts/**'
-    ], 'public/font')
-    .copy([
-        'bower_components/summernote/font/**'
     ], 'public/fonts')
+    .copy([
+        'bower_components/summernote/dist/font/**'
+    ], 'public/css/font')
     .copy([
         'bower_components/AdminLTE/dist/css/AdminLTE.min.css',
         'bower_components/AdminLTE/dist/css/skins/skin-blue.min.css'

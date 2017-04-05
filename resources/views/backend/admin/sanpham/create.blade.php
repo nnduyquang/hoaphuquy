@@ -20,17 +20,17 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'sanphams.store','method'=>'POST')) !!}
+    {!! Form::open(array('route' => 'sanphams.store','method'=>'POST','files'=>true)) !!}
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tên Danh Mục:</strong>
+                <strong>Tên Sản Phẩm:</strong>
                 {!! Form::text('display_name', null, array('placeholder' => 'Tên Sản Phẩm','class' => 'form-control')) !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                {!! Form::checkbox('lienhegia', 'Liên Hệ Để Biết Giá?', false) !!}
+                {!! Form::checkbox('lienhegia', '1', false) !!} Liên Hệ Để Biết Giá?
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -48,10 +48,10 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Chọn Danh Mục</strong>
-                <select class="selectpicker" id="ddAlbum">
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Relish</option>
+                <select class="selectpicker" id="ddAlbum" name="cbbDanhMuc">
+                    @foreach ($danhmucs as $key => $danhmuc)
+                        <option value="{{ $danhmuc->id }}">{{ $danhmuc->display_name }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -63,11 +63,11 @@
                         {{ Html::image('','',array('id'=>'showHinhSanPham'))}}
                     </div>
                 </div>
-                {!! Form::file('url',array('id'=>'chooseHinhSanPham','accept'=>'image/jpeg,image/jpg,image/png')) !!}
+                {!! Form::file('anhsanpham',array('id'=>'chooseHinhSanPham','accept'=>'image/jpeg,image/jpg,image/png')) !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button id="btnDanhMuc" type="submit" class="btn btn-primary">Tạo Mới Danh Mục</button>
+            <button id="btnDanhMuc" type="submit" class="btn btn-primary">Tạo Mới Sản Phẩm</button>
         </div>
     </div>
     {!! Form::close() !!}

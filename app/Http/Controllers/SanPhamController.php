@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DanhMuc;
 use App\Http\Requests\SanPhamRequest;
 use App\SanPham;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class SanPhamController extends Controller
 {
@@ -15,9 +18,9 @@ class SanPhamController extends Controller
      */
     public function index(Request $request)
     {
-        $danhmucs = DanhMuc::orderBy('id', 'DESC')->paginate(5);
+        $sanphams = SanPham::orderBy('id', 'DESC')->paginate(5);
         return view('backend.admin.sanpham.sanpham', compact('sanphams'))
-            ->with('i', ($request->input('page', 1) - 1) * 5
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -27,7 +30,8 @@ class SanPhamController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.sanpham.create', compact('roles'));
+        $danhmucs = DanhMuc::all()->sortBy('id');
+        return view('backend.admin.sanpham.create', compact(['roles','danhmucs']));
     }
 
     /**
@@ -46,7 +50,7 @@ class SanPhamController extends Controller
         $path = str_replace(' ', '-', $path);
         $sanpham->path = $path;
         $sanpham->noidung = $request->input('noidung');
-        $file = Input::file('hinhchude');
+        $file = Input::file('anhsanpham');
         $directory = "images/sanpham/";/////////////////////Be carefull không có public
         $ran = round(microtime(true) * 1000);
         $filename = $file->getClientOriginalName();
@@ -60,8 +64,14 @@ class SanPhamController extends Controller
         $filename = $filename . '_' . $ran . '.' . $file->getClientOriginalExtension();
         $file->move($directory, $filename);
         $sanpham->anhsanpham = $filename;
-        $sanpham->lienhegia = input('lienhegia');
-        $sanpham->danhmuc_id = input('cbbDanhMuc');
+        if ($request->has('lienhegia')) {
+            $sanpham->lienhegia = $request->input('lienhegia');
+            $sanpham->price= '';
+        }else{
+            $sanpham->lienhegia=0;
+            $sanpham->price= $request->input('price');
+        }
+        $sanpham->danhmuc_id = $request->input('cbbDanhMuc');
         $sanpham->user_id = Auth::user()->id;
         $sanpham->save();
         return redirect()->route('sanphams.index')
@@ -88,8 +98,8 @@ class SanPhamController extends Controller
     public function edit($id)
     {
         $sanpham = SanPham::find($id);
-        $danhmuc = DanhMuc::all(['id', 'display_name']);
-        return view('backend.admin.sanpham.edit', compact(['sanpham', 'danhmuc']));
+        $danhmucs = DanhMuc::all()->sortBy('id');
+        return view('backend.admin.sanpham.edit', compact(['sanpham', 'danhmucs']));
     }
 
     /**
@@ -109,22 +119,30 @@ class SanPhamController extends Controller
         $path = str_replace(' ', '-', $path);
         $sanpham->path = $path;
         $sanpham->noidung = $request->input('noidung');
-        $file = Input::file('hinhchude');
-        $directory = "images/sanpham/";/////////////////////Be carefull không có public
-        $ran = round(microtime(true) * 1000);
-        $filename = $file->getClientOriginalName();
-        $filename = str_replace('.' . $file->getClientOriginalExtension(), '', $filename);
-        $filename = str_replace(' ', '-', $filename);
-        $filename = preg_replace('/[^A-Za-z0-9\-]/', '', $filename);
-        $filename = preg_replace('/-+/', '', $filename);
-        if (strlen($filename) > 15) {
-            $filename = substr($filename, 0, 15);
+        $file = Input::file('anhsanpham');
+        if($file) {
+            $directory = "images/sanpham/";/////////////////////Be carefull không có public
+            $ran = round(microtime(true) * 1000);
+            $filename = $file->getClientOriginalName();
+            $filename = str_replace('.' . $file->getClientOriginalExtension(), '', $filename);
+            $filename = str_replace(' ', '-', $filename);
+            $filename = preg_replace('/[^A-Za-z0-9\-]/', '', $filename);
+            $filename = preg_replace('/-+/', '', $filename);
+            if (strlen($filename) > 15) {
+                $filename = substr($filename, 0, 15);
+            }
+            $filename = $filename . '_' . $ran . '.' . $file->getClientOriginalExtension();
+            $file->move($directory, $filename);
+            $sanpham->anhsanpham = $filename;
         }
-        $filename = $filename . '_' . $ran . '.' . $file->getClientOriginalExtension();
-        $file->move($directory, $filename);
-        $sanpham->anhsanpham = $filename;
-        $sanpham->lienhegia = input('lienhegia');
-        $sanpham->danhmuc_id = input('cbbDanhMuc');
+        if ($request->has('lienhegia')) {
+            $sanpham->lienhegia = $request->input('lienhegia');
+            $sanpham->price='';
+        }else{
+            $sanpham->lienhegia=0;
+            $sanpham->price= $request->input('price');
+        }
+        $sanpham->danhmuc_id = $request->input('cbbDanhMuc');
         $sanpham->user_id = Auth::user()->id;
         $sanpham->save();
         return redirect()->route('sanphams.index')
