@@ -7,6 +7,7 @@ use App\Http\Requests\SanPhamRequest;
 use App\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 
 class SanPhamController extends Controller
@@ -158,7 +159,9 @@ class SanPhamController extends Controller
      */
     public function destroy($id)
     {
-        SanPham::find($id)->delete();
+        $sanpham=SanPham::find($id);
+        File::delete('images/sanpham/'.$sanpham->anhsanpham);
+        $sanpham->delete();
         return redirect()->route('sanphams.index')
             ->with('success', 'Sản Phẩm deleted successfully');
     }

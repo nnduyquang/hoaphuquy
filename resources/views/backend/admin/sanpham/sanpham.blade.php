@@ -25,6 +25,7 @@
             <th>Tên Sản Phẩm</th>
             <th>Path</th>
             <th>Hình Sản Phẩm</th>
+            <th>Giá</th>
             <th>Danh Mục</th>
             <th>Tác Giả</th>
             <th width="280px">Action</th>
@@ -36,6 +37,12 @@
                 <td>{{ $sanpham->path }}</td>
                 <td>
                     {{ $sanpham->anhsanpham }}
+                </td>
+                <td>@if($sanpham->lienhegia==0)
+                        {{$sanpham->price}}
+                    @else
+                        Liên Hệ Để Biết Giá
+                    @endif
                 </td>
                 <td>{{ $sanpham->danhmucs->display_name }}</td>
                 <td>{{ $sanpham->users->name }}</td>

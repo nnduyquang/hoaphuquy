@@ -30,13 +30,18 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+
                 {!! Form::checkbox('lienhegia', '1', $sanpham->lienhegia==1?true:false) !!} Liên Hệ Để Biết Giá?
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Giá:</strong>
-                {!! Form::text('price', null, array('placeholder' => 'Giá Sản Phẩm','class' => 'form-control')) !!}
+                @if($sanpham->lienhegia==0)
+                    {!! Form::text('price', null, array('placeholder' => 'Giá Sản Phẩm','class' => 'form-control')) !!}
+                @else
+                    {!! Form::text('price', null, array('placeholder' => 'Giá Sản Phẩm','class' => 'form-control','disabled'=>'disabled')) !!}
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
