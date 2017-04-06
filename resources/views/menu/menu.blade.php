@@ -7,7 +7,7 @@
                 </div>
                 <div class="menu-info">
                     <div class="nav on-desktop visible-md-block visible-lg-block">
-                        <div id="nav">
+                        <div id="nav" class="menu-bar">
                             <div class="container">
                                 <div class="brand">
                                     <a href="#">
@@ -67,8 +67,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="nav on-mobile navbar-fixed-top visible-xs-block visible-sm-block">
+                        <ul>
+                            <li><a href="#menu" class="fa fa-2x fa-bars"></a></li>
+                            <li><a href="#" class="fa fa-2x fa-home"></a></li>
+                            <li><a href="#" class="fa fa-2x fa-home">Liên Hệ</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<nav id="menu">
+    <ul>
+        <li>{{ Html::image('images/logo/smartlinks-logo.png','',array('class'=>'logo')) }}</li>
+        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nam</a></li>
+        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nữ</a></li>
+        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nam</a></li>
+        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nam</a></li>
+    </ul>
+</nav>

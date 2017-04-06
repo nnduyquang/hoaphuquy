@@ -49,7 +49,7 @@
 #info-header{
   img{
     width: 100%;
-    height: 100%;
+    height: 100px;
   }
 }
 #gift{
@@ -98,6 +98,21 @@
     .description-item {
       margin-bottom: 10px;
       clear: both;
+    }
+  }
+}
+@media screen and(max-width: 991px) {
+  .nav {
+    height: 50px !important;
+  }
+  #menu{
+    li img{
+      width: 100%;
+    }
+  }
+  .on-mobile{
+    li a{
+      text-transform: capitalize!important;
     }
   }
 }

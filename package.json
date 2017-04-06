@@ -16,6 +16,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "jquery.mmenu": "^5.7.8",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3"
   }

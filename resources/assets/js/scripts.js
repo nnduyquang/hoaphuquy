@@ -1,10 +1,22 @@
 var plugins = {
     // owlCarousel: $("#slider"),
-    // menu: $("#menu"),
-    spQuanAoNam: $('.wrap-san-pham-danh-muc')
+    menu: $("#menu"),
+    spQuanAoNam: $('.wrap-san-pham-danh-muc'),
+    slider:$('#slider')
 };
 
 $(document).ready(function () {
+    function loadMenu() {
+        plugins.menu.mmenu({
+            //option
+            autoHeight: false
+        }, {
+            // configuration
+            // offCanvas: {
+            //     pageSelector: "#menubar"
+            // }
+        });
+    }
     function spQuanAoNam() {
         plugins.spQuanAoNam.not('.slick-initialized').slick({
             autoplay: false,
@@ -32,7 +44,37 @@ $(document).ready(function () {
             }]
         });
     }
+    function runSlider(){
+        plugins.slider.nivoSlider({
+            effect:'fade',
+            animSpeed:500,
+            pauseTime:3000,
+            pauseOnHover:true,
+            controlNav:false,
+        });
+    }
+    if (plugins.menu.length) {
+        loadMenu();
+    }
     if (plugins.spQuanAoNam.length) {
         spQuanAoNam();
     }
+    if(plugins.slider.length){
+        runSlider();
+    }
+    var menubar = $('.menu-bar').position();
+    $(window).scroll(function (event) {
+        if ($(this).scrollTop() > (menubar.top + 100)) {
+            $('.menu-bar').css( { 'position' : 'fixed', 'top' : '0px','z-index' : '9999999', 'left':'0px', } );
+            $('.menu-bar').addClass('nav');
+
+            // $('.home-logo').show();
+        }else{
+            $('.menu-bar').css( { 'position' : '', 'top' : '','border-bottom':'none' } );
+            $('.menu-bar').removeClass('nav');
+
+            // $('.home-logo').hide();
+
+        }
+    });
 });
