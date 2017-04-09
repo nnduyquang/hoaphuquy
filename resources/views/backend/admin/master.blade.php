@@ -10,6 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>AdminLTE 2 | Starter</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     {{ Html::style('css/app.css') }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     {{ Html::style('css/AdminLTE.min.css') }}
@@ -236,6 +237,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @endif
                 <li><a href="{{ route('danhmucs.index') }}"><i class="fa fa-link"></i> <span>Danh Mục</span></a></li>
                 <li><a href="{{ route('sanphams.index') }}"><i class="fa fa-link"></i> <span>Sản Phẩm</span></a></li>
+                <li><a href="{{ route('sliders.index') }}"><i class="fa fa-link"></i> <span>Slider</span></a></li>
+                <li><a href="{{ route('trangs.index') }}"><i class="fa fa-link"></i> <span>Trang</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -356,6 +359,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 {{ Html::script('js/core.js') }}
 {{ Html::script('js/app.min.js') }}
 {{ Html::script('js/backend.js') }}
-
 </body>
 </html>

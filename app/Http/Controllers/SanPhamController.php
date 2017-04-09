@@ -19,9 +19,11 @@ class SanPhamController extends Controller
      */
     public function index(Request $request)
     {
-        $sanphams = SanPham::orderBy('id', 'DESC')->paginate(5);
-        return view('backend.admin.sanpham.sanpham', compact('sanphams'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+//        $sanphams = SanPham::orderBy('danhmuc_id', 'DESC')->paginate(5);
+//        $sanphams = SanPham::orderBy('danhmuc_id', 'DESC')->get();
+        $sanphams = SanPham::all()->sortBy('danhmuc_id');
+        return view('backend.admin.sanpham.sanpham', compact('sanphams'));
+//            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -32,7 +34,7 @@ class SanPhamController extends Controller
     public function create()
     {
         $danhmucs = DanhMuc::all()->sortBy('id');
-        return view('backend.admin.sanpham.create', compact(['roles','danhmucs']));
+        return view('backend.admin.sanpham.create', compact(['roles', 'danhmucs']));
     }
 
     /**
@@ -47,8 +49,9 @@ class SanPhamController extends Controller
         $display_name = $request->input('display_name');
         $sanpham->display_name = $display_name;
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
+        $path = preg_replace('/\W/', ' ', $path);
         $path = preg_replace('/\s+/', ' ', $path);
-        $path = str_replace(' ', '-', $path);
+        $path = str_replace(' ', '-', trim($path));
         $sanpham->path = $path;
         $sanpham->noidung = $request->input('noidung');
         $file = Input::file('anhsanpham');
@@ -67,10 +70,10 @@ class SanPhamController extends Controller
         $sanpham->anhsanpham = $filename;
         if ($request->has('lienhegia')) {
             $sanpham->lienhegia = $request->input('lienhegia');
-            $sanpham->price= '';
-        }else{
-            $sanpham->lienhegia=0;
-            $sanpham->price= $request->input('price');
+            $sanpham->price = '';
+        } else {
+            $sanpham->lienhegia = 0;
+            $sanpham->price = $request->input('price');
         }
         $sanpham->danhmuc_id = $request->input('cbbDanhMuc');
         $sanpham->user_id = Auth::user()->id;
@@ -110,18 +113,20 @@ class SanPhamController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SanPhamRequest $request, $id)
     {
         $sanpham = SanPham::find($id);
         $display_name = $request->input('display_name');
         $sanpham->display_name = $display_name;
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
+        $path = preg_replace('/\W/', ' ', $path);
         $path = preg_replace('/\s+/', ' ', $path);
-        $path = str_replace(' ', '-', $path);
+        $path = str_replace(' ', '-', trim($path));
         $sanpham->path = $path;
         $sanpham->noidung = $request->input('noidung');
         $file = Input::file('anhsanpham');
-        if($file) {
+        if ($file) {
+            File::delete('images/sanpham/' . $sanpham->anhsanpham);
             $directory = "images/sanpham/";/////////////////////Be carefull không có public
             $ran = round(microtime(true) * 1000);
             $filename = $file->getClientOriginalName();
@@ -138,10 +143,10 @@ class SanPhamController extends Controller
         }
         if ($request->has('lienhegia')) {
             $sanpham->lienhegia = $request->input('lienhegia');
-            $sanpham->price='';
-        }else{
-            $sanpham->lienhegia=0;
-            $sanpham->price= $request->input('price');
+            $sanpham->price = '';
+        } else {
+            $sanpham->lienhegia = 0;
+            $sanpham->price = $request->input('price');
         }
         $sanpham->danhmuc_id = $request->input('cbbDanhMuc');
         $sanpham->user_id = Auth::user()->id;
@@ -159,10 +164,32 @@ class SanPhamController extends Controller
      */
     public function destroy($id)
     {
-        $sanpham=SanPham::find($id);
-        File::delete('images/sanpham/'.$sanpham->anhsanpham);
+        $sanpham = SanPham::find($id);
+        File::delete('images/sanpham/' . $sanpham->anhsanpham);
         $sanpham->delete();
         return redirect()->route('sanphams.index')
             ->with('success', 'Sản Phẩm deleted successfully');
+    }
+    public function getAllSanPhamByDanhMuc($path){
+        $sanphams=SanPham::select('sanphams.display_name','sanphams.path','danhmucs.path as pathdanhmuc','sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+            ->where('danhmucs.path','like', $path )->get();
+        return view('frontend.sanpham.danhsachsanpham', compact('sanphams'));
+    }
+    public function getSanPhamByPathSanPham($path1,$path2){
+        $sanpham=SanPham::where('path',$path2)->first();
+        return view('frontend.sanpham.chitietsanpham', compact('sanpham'));
+    }
+    public function getSanPhamTrangChu(){
+        $sanphammois=SanPham::select('sanphams.display_name','sanphams.path','danhmucs.path as pathdanhmuc','sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+            ->orderBy('sanphams.id','DESC')->limit(6)->get();
+        $danhmucs = DanhMuc::orderBy('id','DESC')->limit(3)->get();
+        $sanphamtheodanhmucs=[];
+        foreach ($danhmucs as $key=>$danhmuc){
+            $sanphams=SanPham::select('sanphams.display_name','sanphams.path','danhmucs.path as pathdanhmuc','sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+                ->where('danhmucs.path','like', $danhmuc->path )->get();
+            $sanphamtheodanhmucs[]=['tendanhmuc'=>$danhmuc->display_name,'listsanpham'=>$sanphams];
+        }
+//        dd($sanphamtheodanhmucs);
+        return view('frontend.trangchu.index', compact(['sanphammois','sanphamtheodanhmucs']));
     }
 }

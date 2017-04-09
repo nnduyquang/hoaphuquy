@@ -14,6 +14,8 @@ const { mix } = require('laravel-mix');
 mix.styles([
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
+    'bower_components/datatables.net/js/jquery.dataTables.min.js',
+    'bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js',
     'node_modules/jquery.mmenu/dist/js/jquery.mmenu.min.js',
     'bower_components/slick-carousel/slick/slick.js',
     'bower_components/summernote/dist/summernote.js',
@@ -22,6 +24,7 @@ mix.styles([
     .styles([
         'bower_components/bootstrap/dist/css/bootstrap.min.css',
         'bower_components/font-awesome/css/font-awesome.min.css',
+        'bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css',
         'node_modules/jquery.mmenu/dist/css/jquery.mmenu.all.css',
         'bower_components/slick-carousel/slick/slick.css',
         'bower_components/summernote/dist/summernote.css',
@@ -52,5 +55,7 @@ mix.styles([
         'resources/assets/js/login.js'
     ], 'public/js/login.js')
     .styles([
-        'resources/assets/js/sanpham.js'
+        'resources/assets/js/be-sanpham.js',
+        'resources/assets/js/be-slider.js',
+        'resources/assets/js/be-trang.js'
     ], 'public/js/backend.js')

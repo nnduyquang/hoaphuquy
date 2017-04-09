@@ -8,9 +8,14 @@
   }
   #wrap-thong-tin-chi-tiet{
     margin-top: 10px;
-    .thong-tin-chi-tiet{
-      background-color: white;
+    ul.thong-tin-chi-tiet{
+      background-color: #F5F5F5;
       height: auto;
+        li{
+          a{
+            font-weight: bolder;
+          }
+        }
     }
     .tab-content{
       border-left: 1px solid #ddd;
@@ -18,5 +23,8 @@
       border-bottom: 1px solid #ddd;
       padding: 10px;
     }
+  }
+  .note-editor.note-frame .note-editing-area .note-editable[contenteditable="false"] {
+    background-color: white;
   }
 }

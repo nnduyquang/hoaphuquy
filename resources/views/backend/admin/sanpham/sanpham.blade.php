@@ -19,9 +19,10 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <table class="table table-bordered">
+    <table id="dataSanPham" class="table table-bordered">
+        <thead>
         <tr>
-            <th>STT</th>
+            {{--<th>STT</th>--}}
             <th>Tên Sản Phẩm</th>
             <th>Path</th>
             <th>Hình Sản Phẩm</th>
@@ -30,13 +31,15 @@
             <th>Tác Giả</th>
             <th width="280px">Action</th>
         </tr>
+        </thead>
+        <tbody>
         @foreach ($sanphams as $key => $sanpham)
             <tr>
-                <td>{{ ++$i }}</td>
+                {{--<td>{{ ++$i }}</td>--}}
                 <td>{{ $sanpham->display_name }}</td>
                 <td>{{ $sanpham->path }}</td>
                 <td>
-                    {{ $sanpham->anhsanpham }}
+                    {{ Html::image('images/sanpham/'.$sanpham->anhsanpham,'',array('class'=>'showHinhSanPham'))}}
                 </td>
                 <td>@if($sanpham->lienhegia==0)
                         {{$sanpham->price}}
@@ -58,7 +61,8 @@
                 </td>
             </tr>
         @endforeach
+        </tbody>
     </table>
-    {!! $sanphams->render() !!}
+    {{--{!! $sanphams->render() !!}--}}
 
 @stop

@@ -74,26 +74,67 @@ class PermissionTableSeeder extends Seeder
 //                'display_name' => 'Delete Danh Muc',
 //                'description' => 'Delete Danh Muc'
 //            ]
+//            [
+//                'name' => 'sanpham-list',
+//                'display_name' => 'Display Sản Phẩm Listing',
+//                'description' => 'See only Sản Phẩm Of Role'
+//            ],
+//            [
+//                'name' => 'sanpham-create',
+//                'display_name' => 'Create Sản Phẩm',
+//                'description' => 'Create New Sản Phẩm'
+//            ],
+//            [
+//                'name' => 'sanpham-edit',
+//                'display_name' => 'Edit Sản Phẩm',
+//                'description' => 'Edit Sản Phẩm'
+//            ],
+//            [
+//                'name' => 'sanpham-delete',
+//                'display_name' => 'Delete Sản Phẩm',
+//                'description' => 'Delete Sản Phẩm'
+//            ]
+//            [
+//                'name' => 'slider-list',
+//                'display_name' => 'Display Slider Listing',
+//                'description' => 'See only Slider Of Role'
+//            ],
+//            [
+//                'name' => 'slider-create',
+//                'display_name' => 'Create Slider',
+//                'description' => 'Create New Slider'
+//            ],
+//            [
+//                'name' => 'slider-edit',
+//                'display_name' => 'Edit Slider',
+//                'description' => 'Edit Slider'
+//            ],
+//            [
+//                'name' => 'slider-delete',
+//                'display_name' => 'Delete Slider',
+//                'description' => 'Delete SSlider'
+//            ]
             [
-                'name' => 'sanpham-list',
-                'display_name' => 'Display Sản Phẩm Listing',
-                'description' => 'See only Sản Phẩm Of Role'
+                'name' => 'trang-list',
+                'display_name' => 'Display Trang Listing',
+                'description' => 'See only Trang Of Role'
             ],
             [
-                'name' => 'sanpham-create',
-                'display_name' => 'Create Sản Phẩm',
-                'description' => 'Create New Sản Phẩm'
+                'name' => 'trang-create',
+                'display_name' => 'Create Trang',
+                'description' => 'Create New Trang'
             ],
             [
-                'name' => 'sanpham-edit',
-                'display_name' => 'Edit Sản Phẩm',
-                'description' => 'Edit Sản Phẩm'
+                'name' => 'trang-edit',
+                'display_name' => 'Edit Trang',
+                'description' => 'Edit Trang'
             ],
             [
-                'name' => 'sanpham-delete',
-                'display_name' => 'Delete Sản Phẩm',
-                'description' => 'Delete Sản Phẩm'
+                'name' => 'trang-delete',
+                'display_name' => 'Delete Trang',
+                'description' => 'Delete Trang'
             ]
+
 
         ];
         foreach ($permission as $key => $value) {

@@ -7,7 +7,7 @@
                     <div class="breadcrumb-info-title">
                         <h3>Quần Tập Thể Dục</h3>
                         <div class="blog-slug">
-                            <a href="">Trang Chủ&nbsp</a><a href="">/&nbspQuần Áo Nam&nbsp</a>/&nbspQuần Tập Thể Dục
+                            <a href="">Trang Chủ&nbsp</a><a href="">/&nbspQuần Áo Nam&nbsp</a>/&nbsp{{$sanpham->display_name}}
                         </div>
                     </div>
                 </div>
@@ -21,11 +21,17 @@
             <div id="wrap-tom-tat" class="col-md-12">
                 <div class="row">
                     <div class="col-md-3">
-                        {{ Html::image('images/sanpham/sanpham01.jpg','',array('class'=>'')) }}
+                        {{ Html::image('images/sanpham/'.$sanpham->anhsanpham,'',array('class'=>'')) }}
                     </div>
                     <div class="col-md-9">
-                        <h3 class="title-sanpham">Quần tây nam dài thòong</h3>
-                        <div class="gia-san-pham">Giá: 50.000</div>
+                        <h3 class="title-sanpham">{{$sanpham->display_name}}</h3>
+                        <div class="gia-san-pham">Giá:
+                            @if($sanpham->lienhegia==0)
+                                {{$sanpham->price}}
+                            @else
+                                Liên Hệ Để Báo Giá
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,10 +42,9 @@
                     </ul>
 
                     <div class="tab-content">
-                        <div id="home" class="tab-pane fade in active">
-                            <h3>HOME</h3>
-                            <p>Some content.</p>
-                        </div>
+                        <textarea id="chitietsanpham" class="tab-pane fade in active">
+                            {{$sanpham->noidung }}
+                        </textarea>
                     </div>
                 </div>
             </div>

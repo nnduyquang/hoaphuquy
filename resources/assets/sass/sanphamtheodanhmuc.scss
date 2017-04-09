@@ -1,8 +1,12 @@
 .san-pham-danh-muc {
-  border: 1px solid #dee2e5;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 30px;
+  h3{
+    font-size: 27px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #333333;
+    border-bottom: 4px solid #bababa;
+    padding-bottom: 8px;
+  }
   .wrap-san-pham-danh-muc{
     .list {
       display: flex;
@@ -49,9 +53,14 @@
         margin-right: auto;
         margin-bottom: 10px;
         margin-top: 10px;
+        background: linear-gradient(to bottom, #5bb284 0%, #468966 100%);
+        border: 0px solid #fff;
         a {
           text-decoration: none;
           color: white;
+        }
+        &:hover{
+          background: #6aa084;
         }
       }
     }

@@ -20,6 +20,8 @@
     "slick-carousel": "^1.6.0",
     "AdminLTE": "admin-lte#^2.3.11",
     "summernote": "^0.8.3",
-    "nivo-slider": "*"
+    "nivo-slider": "*",
+    "datatables.net": "^2.1.1",
+    "datatables.net-bs": "^2.1.1"
   }
 }

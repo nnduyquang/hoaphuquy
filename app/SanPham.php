@@ -17,6 +17,6 @@ class SanPham extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
     public function danhmucs(){
-        return $this->belongsTo('App\DanhMuc','danhmuc_id');
+        return $this->belongsTo('App\SanPham','danhmuc_id');
     }
 }

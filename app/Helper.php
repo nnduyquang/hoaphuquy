@@ -42,3 +42,16 @@ function vn_str_co_dau_thanh_khong_dau ($str){
     return $str;
 
 }
+function get_filename_from_input($file){
+    $ran = round(microtime(true) * 1000);
+    $filename = $file->getClientOriginalName();
+    $filename = str_replace('.' . $file->getClientOriginalExtension(), '', $filename);
+    $filename = str_replace(' ', '-', $filename);
+    $filename = preg_replace('/[^A-Za-z0-9\-]/', '', $filename);
+    $filename = preg_replace('/-+/', '', $filename);
+    if (strlen($filename) > 15) {
+        $filename = substr($filename, 0, 15);
+    }
+    $filename = $filename . '_' . $ran . '.' . $file->getClientOriginalExtension();
+    return $filename;
+}
