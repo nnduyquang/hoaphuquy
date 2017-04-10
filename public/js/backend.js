@@ -4,31 +4,8 @@ $('#summernote').summernote({
     minHeight: null,
     maxHeight: null,
     focus: true,
-    // callbacks: {
-    //     onImageUpload: function (files, editor, welEditable) {
-    //         sendFile(files[0], editor, welEditable);
-    //     }
-    // }
 });
-// function sendFile(file, editor, welEditable) {
-//     data = new FormData();
-//     data.append("file", file);
-//     $.ajax({
-//         data: data,
-//         type: "POST",
-//         // url: '/sml_admin/common/uploadImage',
-//         uploadUrl: '{{url("sml_admin/common/uploadImage")}}',
-//         data: {
-//             '_token':token
-//         },
-//         cache: false,
-//         contentType: false,
-//         processData: false,
-//         success: function (url) {
-//             editor.insertImage(welEditable, url);
-//         }
-//     });
-// }
+
 
 $('#chooseHinhSanPham').change(function (event) {
     var tmppath = URL.createObjectURL(event.target.files[0]);
@@ -55,4 +32,18 @@ $('#summernote-trang').summernote({
     minHeight: null,
     maxHeight: null,
     focus: true
+});
+$('#chooseHinhLogo').change(function (event) {
+    var tmppath = URL.createObjectURL(event.target.files[0]);
+    $("#showLogo").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+});
+$('#chooseHinhMainTrai').change(function (event) {
+    var tmppath = URL.createObjectURL(event.target.files[0]);
+    $("#showHinhMainTrai").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+});
+$('#summernoteCauHinhLienHe').summernote({
+    height: 300,
+    minHeight: null,
+    maxHeight: null,
+    focus: true,
 });

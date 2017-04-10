@@ -239,6 +239,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="{{ route('sanphams.index') }}"><i class="fa fa-link"></i> <span>Sản Phẩm</span></a></li>
                 <li><a href="{{ route('sliders.index') }}"><i class="fa fa-link"></i> <span>Slider</span></a></li>
                 <li><a href="{{ route('trangs.index') }}"><i class="fa fa-link"></i> <span>Trang</span></a></li>
+                <li><a href="{{ route('cauhinhs.index') }}"><i class="fa fa-link"></i> <span>Cấu Hình</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -276,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="#">Company</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->

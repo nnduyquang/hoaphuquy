@@ -13,7 +13,5 @@ class CommonController extends Controller
         $filename = $file->getClientOriginalName();
         $file->move($directory, $filename);
     }
-    public function getDataFrontEnd(){
-        return
-    }
+
 }

@@ -17,7 +17,7 @@
                                 <div class="menu-right">
                                     <ul>
                                         <li><a href="{{URL::to('/')}}">Trang Chủ</a></li>
-                                        <li><a href="#">Giới Thiệu</a></li>
+                                        <li><a href="{{URL::to('/gioi-thieu')}}">Giới Thiệu</a></li>
                                         <li><a href="#">Liên Hệ</a></li>
                                     </ul>
                                 </div>

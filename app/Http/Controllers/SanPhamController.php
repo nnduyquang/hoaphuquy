@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DanhMuc;
 use App\Http\Requests\SanPhamRequest;
 use App\SanPham;
+use App\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -198,7 +199,7 @@ class SanPhamController extends Controller
                 ->where('danhmucs.path', 'like', $danhmuc->path)->get();
             $sanphamtheodanhmucs[] = ['tendanhmuc' => $danhmuc->display_name, 'listsanpham' => $sanphams];
         }
-//        dd($sanphamtheodanhmucs);
-        return view('frontend.trangchu.index', compact(['sanphammois', 'sanphamtheodanhmucs']));
+        $slides=Slider::all()->sortBy('order');
+        return view('frontend.trangchu.index', compact(['sanphammois', 'sanphamtheodanhmucs','slides']));
     }
 }

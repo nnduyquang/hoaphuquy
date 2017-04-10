@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2017 at 01:46 AM
+-- Generation Time: Apr 11, 2017 at 01:46 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `hoaphuquy`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cauhinhs`
+--
+
+CREATE TABLE `cauhinhs` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `hinh` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `noidung` longtext COLLATE utf8mb4_unicode_ci,
+  `order` longtext COLLATE utf8mb4_unicode_ci,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cauhinhs`
+--
+
+INSERT INTO `cauhinhs` (`id`, `hinh`, `noidung`, `order`, `user_id`, `created_at`, `updated_at`, `name`) VALUES
+(1, 'Novalandlakevie_1491842664212.jpg', NULL, '1', 3, '2017-04-10 08:53:49', '2017-04-10 09:44:24', 'Logo'),
+(2, 'Novalandlakevie_1491842693030.jpg', NULL, '2', 3, '2017-04-10 08:53:49', '2017-04-10 09:44:53', 'Hình Trang Chủ Trái'),
+(3, NULL, '<div class="col-md-6">\r\n                        <div id="thong-tin-lien-he">\r\n                            <h3>Thông Tin Liên Hệ</h3><h3><b>Cửa Hàng Phú Quý</b></h3><ul><li class="dia-chi">Địa Chỉ: 135 Hải Thượng Lãng Ông, P.10, Q.5 - TPHCM<br></li><li class="so-dien-thoai">Số Điện Thoại: 08.38578 486 - 0937.539.663 - 0908.871.315<br></li><li class="email">Email: cuahangphuquy135@gmail.com</li></ul>\r\n                        </div>\r\n                    </div><p><br></p>', '3', 3, '2017-04-10 08:53:49', '2017-04-10 09:39:26', 'Liên Hệ');
 
 -- --------------------------------------------------------
 
@@ -71,7 +97,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2017_04_03_081514_create_sanphams_table', 6),
 (8, '2017_04_03_092516_add_path_anhsanpham_to_sanphams_table', 7),
 (9, '2017_04_08_091752_create_sliders_table', 8),
-(10, '2017_04_08_143301_create_trangs_table', 9);
+(10, '2017_04_08_143301_create_trangs_table', 9),
+(11, '2017_04_10_153903_create_cauhinhs_table', 10),
+(12, '2017_04_10_155255_add_name_to_cauhinhs_table', 11);
 
 -- --------------------------------------------------------
 
@@ -188,8 +216,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (20, 2),
 (21, 2),
 (22, 2),
-(23, 2),
-(24, 2);
+(23, 2);
 
 -- --------------------------------------------------------
 
@@ -376,6 +403,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 --
 
 --
+-- Indexes for table `cauhinhs`
+--
+ALTER TABLE `cauhinhs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cauhinhs_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `danhmucs`
 --
 ALTER TABLE `danhmucs`
@@ -460,6 +494,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `cauhinhs`
+--
+ALTER TABLE `cauhinhs`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `danhmucs`
 --
 ALTER TABLE `danhmucs`
@@ -468,7 +507,7 @@ ALTER TABLE `danhmucs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
@@ -502,6 +541,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cauhinhs`
+--
+ALTER TABLE `cauhinhs`
+  ADD CONSTRAINT `cauhinhs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `danhmucs`

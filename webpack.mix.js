@@ -57,5 +57,6 @@ mix.styles([
     .styles([
         'resources/assets/js/be-sanpham.js',
         'resources/assets/js/be-slider.js',
-        'resources/assets/js/be-trang.js'
+        'resources/assets/js/be-trang.js',
+        'resources/assets/js/be-cauhinh.js',
     ], 'public/js/backend.js')

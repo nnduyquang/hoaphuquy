@@ -111,4 +111,8 @@ class TrangController extends Controller
         return redirect()->route('trangs.index')
             ->with('success', 'Trang deleted successfully');
     }
+    public function showTrangGioiThieu(){
+        $trang=Trang::where('path','like','gioi-thieu')->first();
+        return view('frontend.gioithieu.index', compact('trang'));
+    }
 }

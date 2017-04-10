@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('frontend.trangchu.index');
 });
 Route::get('/', 'SanPhamController@getSanPhamTrangChu');
+Route::get('/gioi-thieu', 'TrangController@showTrangGioiThieu');
 Route::get('/danh-muc/{path}', 'SanPhamController@getAllSanPhamByDanhMuc');
 Route::get('/danh-muc/{path1}/{path2}', 'SanPhamController@getSanPhamByPathSanPham');
 Route::get('/danh-muc/quan-ao-nam/quan-tay-dai', function () {
@@ -74,4 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('sml_admin/trang/{id}', ['as' => 'trangs.destroy', 'uses' => 'TrangController@destroy', 'middleware' => ['permission:trang-delete']]);
     //Common
     Route::post('sml_admin/common/uploadImage', ['as' => 'common.uploadImage', 'uses' => 'CommonController@uploadImage']);
+    //Cấu Hình
+    Route::get('sml_admin/cau-hinh', ['as' => 'cauhinhs.index', 'uses' => 'CauHinhController@getAllCauHinh']);
+    Route::post('sml_admin/cau-hinh', ['as' => 'cauhinhs.store', 'uses' => 'CauHinhController@saveAllCauHinh']);
 });

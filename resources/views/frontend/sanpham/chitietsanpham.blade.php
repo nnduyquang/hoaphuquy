@@ -61,27 +61,24 @@
                             Sản Phẩm Liên Quan
                         </h3>
                     </div>
-                    <div class="wrap-san-pham-danh-muc">
-                        @foreach($sanphamlienquans as $key=>$splq)
-                            <div class="list-item">
-                                <div class="list-content">
-                                    <a href="{{URL::to('/danh-muc/'.$splq->pathdanhmuc.'/'.$splq->path)}}">{{ Html::image('images/sanpham/'.$splq->anhsanpham,'',array('class'=>'')) }}</a>
-                                    <h2><a href="#">{{$splq->display_name}} </a></h2>
-                                    <div class="btn btn-primary">
-                                        <a href="{{URL::to('/danh-muc/'.$splq->pathdanhmuc.'/'.$splq->path)}}">Xem Chi
-                                            Tiết</a>
+                    <div class="sp-carousel">
+                        <div class="wrap-san-pham-danh-muc">
+                            @foreach($sanphamlienquans as $key=>$splq)
+                                <div class="list-item">
+                                    <div class="list-content">
+                                        <a href="{{URL::to('/danh-muc/'.$splq->pathdanhmuc.'/'.$splq->path)}}">{{ Html::image('images/sanpham/'.$splq->anhsanpham,'',array('class'=>'')) }}</a>
+                                        <h2><a href="#">{{$splq->display_name}} </a></h2>
+                                        <div class="btn btn-primary">
+                                            <a href="{{URL::to('/danh-muc/'.$splq->pathdanhmuc.'/'.$splq->path)}}">Xem
+                                                Chi
+                                                Tiết</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="sp-arrow-control">
-                        <div class="arrow-nav">
-                            <div class="arrow-prev1">
-                                <i class="fa fa-angle-left"></i>
-                            </div>
-                            <div class="arrow-next1">
-                                <i class="fa fa-angle-right"></i>
+                            @endforeach
+                        </div>
+                        <div class="sp-arrow-control">
+                            <div class="arrow-nav">
                             </div>
                         </div>
                     </div>
