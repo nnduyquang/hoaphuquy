@@ -1,0 +1,11 @@
+{
+  "/mix.js": "/mix.js",
+  "/css/frontend.css": "/css/frontend.css",
+  "/css/backend.css": "/css/backend.css",
+  "/css/login.css": "/css/login.css",
+  "/js/core.js": "/js/core.js",
+  "/css/app.css": "/css/app.css",
+  "/js/scripts.js": "/js/scripts.js",
+  "/js/login.js": "/js/login.js",
+  "/js/backend.js": "/js/backend.js"
+}
