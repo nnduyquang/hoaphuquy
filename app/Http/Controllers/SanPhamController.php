@@ -170,26 +170,35 @@ class SanPhamController extends Controller
         return redirect()->route('sanphams.index')
             ->with('success', 'Sản Phẩm deleted successfully');
     }
-    public function getAllSanPhamByDanhMuc($path){
-        $sanphams=SanPham::select('sanphams.display_name','sanphams.path','danhmucs.path as pathdanhmuc','sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
-            ->where('danhmucs.path','like', $path )->get();
+
+    public function getAllSanPhamByDanhMuc($path)
+    {
+        $sanphams = SanPham::select('sanphams.display_name', 'sanphams.path','danhmucs.display_name as tendanhmuc' ,'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+            ->where('danhmucs.path', 'like', $path)->get();
         return view('frontend.sanpham.danhsachsanpham', compact('sanphams'));
     }
-    public function getSanPhamByPathSanPham($path1,$path2){
-        $sanpham=SanPham::where('path',$path2)->first();
-        return view('frontend.sanpham.chitietsanpham', compact('sanpham'));
+
+    public function getSanPhamByPathSanPham($path1, $path2)
+    {
+        $sanpham = SanPham::select('sanphams.display_name','sanphams.id', 'sanphams.path','sanphams.lienhegia','sanphams.noidung','sanphams.price' ,'danhmucs.path as pathdanhmuc','danhmucs.display_name as tendanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->where('sanphams.path', $path2)->first();
+//       dd($sanpham);
+        $sanphamlienquans=Sanpham::select('sanphams.id','sanphams.display_name', 'sanphams.path','sanphams.lienhegia','sanphams.noidung','sanphams.price' ,'danhmucs.path as pathdanhmuc','danhmucs.display_name as tendanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->where('sanphams.id','<>',$sanpham->id)->get();
+//        dd($sanphamlienquans);
+        return view('frontend.sanpham.chitietsanpham', compact(['sanpham','sanphamlienquans']));
     }
-    public function getSanPhamTrangChu(){
-        $sanphammois=SanPham::select('sanphams.display_name','sanphams.path','danhmucs.path as pathdanhmuc','sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
-            ->orderBy('sanphams.id','DESC')->limit(6)->get();
-        $danhmucs = DanhMuc::orderBy('id','DESC')->limit(3)->get();
-        $sanphamtheodanhmucs=[];
-        foreach ($danhmucs as $key=>$danhmuc){
-            $sanphams=SanPham::select('sanphams.display_name','sanphams.path','danhmucs.path as pathdanhmuc','sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
-                ->where('danhmucs.path','like', $danhmuc->path )->get();
-            $sanphamtheodanhmucs[]=['tendanhmuc'=>$danhmuc->display_name,'listsanpham'=>$sanphams];
+
+    public function getSanPhamTrangChu()
+    {
+        $sanphammois = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+            ->orderBy('sanphams.id', 'DESC')->limit(6)->get();
+        $danhmucs = DanhMuc::orderBy('id', 'DESC')->limit(3)->get();
+        $sanphamtheodanhmucs = [];
+        foreach ($danhmucs as $key => $danhmuc) {
+            $sanphams = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+                ->where('danhmucs.path', 'like', $danhmuc->path)->get();
+            $sanphamtheodanhmucs[] = ['tendanhmuc' => $danhmuc->display_name, 'listsanpham' => $sanphams];
         }
 //        dd($sanphamtheodanhmucs);
-        return view('frontend.trangchu.index', compact(['sanphammois','sanphamtheodanhmucs']));
+        return view('frontend.trangchu.index', compact(['sanphammois', 'sanphamtheodanhmucs']));
     }
 }

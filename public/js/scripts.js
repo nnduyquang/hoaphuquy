@@ -77,18 +77,18 @@ $(document).ready(function () {
 
         }
     });
-    $('#chitietsanpham').summernote({
-        toolbar: false,
-        dialogsInBody:false,
-        disableResizeEditor: true,
-        contenteditable:false,
-        popover:false
-
-    });
-    var container = $('#chitietsanpham').nextAll('div.note-editor:first').find('.panel-body');
-    if ($(container).length)
-    {
-        $(container).prop('contenteditable', 'false');
-    }
+    // $('#chitietsanpham').summernote({
+    //     toolbar: false,
+    //     dialogsInBody:false,
+    //     disableResizeEditor: true,
+    //     contenteditable:false,
+    //     popover:false
+    //
+    // });
+    // var container = $('#chitietsanpham').nextAll('div.note-editor:first').find('.panel-body');
+    // if ($(container).length)
+    // {
+    //     $(container).prop('contenteditable', 'false');
+    // }
 
 });

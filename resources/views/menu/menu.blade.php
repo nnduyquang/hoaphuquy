@@ -2,7 +2,7 @@
     <div class="row">
         <div class="menu-header col-md-12">
             <div class="row">
-                <div id="info-header" class="container">
+                <div id="info-header" class="container on-mobile">
                     {{ Html::image('images/header/header.png','') }}
                 </div>
                 <div class="menu-info">
@@ -70,7 +70,7 @@
                     <div class="nav on-mobile navbar-fixed-top visible-xs-block visible-sm-block">
                         <ul>
                             <li><a href="#menu" class="fa fa-2x fa-bars"></a></li>
-                            <li><a href="#" class="fa fa-2x fa-home"></a></li>
+                            <li><a href="{{URL::to('/')}}" class="fa fa-2x fa-home"></a></li>
                             <li><a href="#" class="fa fa-2x fa-home">Liên Hệ</a></li>
                         </ul>
                     </div>
@@ -82,9 +82,8 @@
 <nav id="menu">
     <ul>
         <li>{{ Html::image('images/logo/smartlinks-logo.png','',array('class'=>'logo')) }}</li>
-        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nam</a></li>
-        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nữ</a></li>
-        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nam</a></li>
-        <li><a href="{{URL::to('/danh-muc/quan-ao-nam')}}">Quần áo nam</a></li>
+        @foreach($danhmucs as $key=>$danhmuc)
+        <li><a href="{{URL::to('/danh-muc/'.$danhmuc->path)}}">{{$danhmuc->display_name}}</a></li>
+        @endforeach
     </ul>
 </nav>

@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="list">
                     @foreach($sanphammois as $key=>$sanphammoi)
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-12">
                             <div class="list-item">
                                 <div class="list-content">
                                     <a href="{{URL::to('/danh-muc/'.$sanphammoi->pathdanhmuc.'/'.$sanphammoi->path)}}">{{ Html::image('images/sanpham/'.$sanphammoi->anhsanpham,'',array('class'=>'')) }}</a>

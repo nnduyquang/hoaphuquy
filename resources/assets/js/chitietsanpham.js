@@ -1,1 +1,1 @@
-$('#summernote').summernote();
+// $('#summernote').summernote('code');

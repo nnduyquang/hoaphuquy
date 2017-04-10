@@ -4,7 +4,7 @@
     line-height: 30px;
     text-transform: uppercase;
     color: #333333;
-    border-bottom: 4px solid #bababa;
+    border-bottom: 4px solid #2ECC71;
     padding-bottom: 8px;
   }
   .wrap-san-pham-danh-muc{
@@ -26,12 +26,10 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      border-radius: 8px;
       a {
         img {
           width: 100%;
           height: 200px;
-          border-radius: 8px 8px 0 0;
         }
       }
       h2{
@@ -55,6 +53,7 @@
         margin-top: 10px;
         background: linear-gradient(to bottom, #5bb284 0%, #468966 100%);
         border: 0px solid #fff;
+        border-radius:0px;
         a {
           text-decoration: none;
           color: white;

@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('frontend.trangchu.danhmuc', function($view) {
             $view->with('danhmucs', DanhMuc::all()->sortBy('id'));
         });
+        view()->composer('menu.menu', function($view) {
+            $view->with('danhmucs', DanhMuc::all()->sortBy('id'));
+        });
     }
 
     /**

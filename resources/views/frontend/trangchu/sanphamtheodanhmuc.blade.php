@@ -14,7 +14,7 @@
             <div class="list-item">
                 <div class="list-content">
                     <a href="{{URL::to('/danh-muc/'.$sp->pathdanhmuc.'/'.$sp->path)}}">{{ Html::image('images/sanpham/'.$sp->anhsanpham,'',array('class'=>'')) }}</a>
-                    <h2><a href="#">$sp->display_name </a></h2>
+                    <h2><a href="#">{{$sp->display_name}} </a></h2>
                     <div class="btn btn-primary">
                         <a href="{{URL::to('/danh-muc/'.$sp->pathdanhmuc.'/'.$sp->path)}}">Xem Chi Tiết</a>
                     </div>
