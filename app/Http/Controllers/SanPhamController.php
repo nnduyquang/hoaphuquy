@@ -22,7 +22,7 @@ class SanPhamController extends Controller
     {
 //        $sanphams = SanPham::orderBy('danhmuc_id', 'DESC')->paginate(5);
 //        $sanphams = SanPham::orderBy('danhmuc_id', 'DESC')->get();
-        $sanphams = SanPham::all()->sortBy('danhmuc_id');
+        $sanphams = SanPham::select('sanphams.display_name','sanphams.id', 'sanphams.path', 'danhmucs.display_name as tendanhmuc', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham', 'sanphams.price', 'sanphams.lienhegia')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->orderby('sanphams.danhmuc_id')->get();
         return view('backend.admin.sanpham.sanpham', compact('sanphams'));
 //            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -174,18 +174,18 @@ class SanPhamController extends Controller
 
     public function getAllSanPhamByDanhMuc($path)
     {
-        $sanphams = SanPham::select('sanphams.display_name', 'sanphams.path','danhmucs.display_name as tendanhmuc' ,'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
+        $sanphams = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.display_name as tendanhmuc', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
             ->where('danhmucs.path', 'like', $path)->get();
         return view('frontend.sanpham.danhsachsanpham', compact('sanphams'));
     }
 
     public function getSanPhamByPathSanPham($path1, $path2)
     {
-        $sanpham = SanPham::select('sanphams.display_name','sanphams.id', 'sanphams.path','sanphams.lienhegia','sanphams.noidung','sanphams.price' ,'danhmucs.path as pathdanhmuc','danhmucs.display_name as tendanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->where('sanphams.path', $path2)->first();
+        $sanpham = SanPham::select('sanphams.display_name', 'sanphams.id', 'sanphams.path', 'sanphams.lienhegia', 'sanphams.noidung', 'sanphams.price', 'danhmucs.path as pathdanhmuc', 'danhmucs.display_name as tendanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->where('sanphams.path', $path2)->first();
 //       dd($sanpham);
-        $sanphamlienquans=Sanpham::select('sanphams.id','sanphams.display_name', 'sanphams.path','sanphams.lienhegia','sanphams.noidung','sanphams.price' ,'danhmucs.path as pathdanhmuc','danhmucs.display_name as tendanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->where('sanphams.id','<>',$sanpham->id)->get();
+        $sanphamlienquans = Sanpham::select('sanphams.id', 'sanphams.display_name', 'sanphams.path', 'sanphams.lienhegia', 'sanphams.noidung', 'sanphams.price', 'danhmucs.path as pathdanhmuc', 'danhmucs.display_name as tendanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->where('danhmucs.path',$path1)->where('sanphams.id', '<>', $sanpham->id)->get();
 //        dd($sanphamlienquans);
-        return view('frontend.sanpham.chitietsanpham', compact(['sanpham','sanphamlienquans']));
+        return view('frontend.sanpham.chitietsanpham', compact(['sanpham', 'sanphamlienquans']));
     }
 
     public function getSanPhamTrangChu()
@@ -199,7 +199,7 @@ class SanPhamController extends Controller
                 ->where('danhmucs.path', 'like', $danhmuc->path)->get();
             $sanphamtheodanhmucs[] = ['tendanhmuc' => $danhmuc->display_name, 'listsanpham' => $sanphams];
         }
-        $slides=Slider::all()->sortBy('order');
-        return view('frontend.trangchu.index', compact(['sanphammois', 'sanphamtheodanhmucs','slides']));
+        $slides = Slider::all()->sortBy('order');
+        return view('frontend.trangchu.index', compact(['sanphammois', 'sanphamtheodanhmucs', 'slides']));
     }
 }

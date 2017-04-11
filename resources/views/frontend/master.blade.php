@@ -39,7 +39,7 @@
 
 
 @include('common.footer')
-
+<a href="tel:0937539663">{{ Html::image('images/temp/icon-phone.png','',array('class'=>'phone-call visible-xs-block visible-sm-block')) }}</a>
 {{ Html::script('js/core.js') }}
 @yield('scripts')
 {{ Html::script('js/scripts.js') }}

@@ -41,33 +41,40 @@ class DanhMucRequest extends FormRequest
             }
         }
     }
+
     public function attributes()
     {
         return [
             'tieude' => 'Tên danh mục'
         ];
     }
+
     public function messages()
     {
         return [
             'display_name.required' => 'Tện Danh Mục Không Để Trống',
         ];
     }
+
     public function withValidator($validator)
     {
-        $validator->after(function ($validator) {
-            if ($this->checkIfExistValue()) {
-                $validator->errors()->add('display_name', 'Tên Danh Mục Đã Tồn Tại');
-            }
-        });
+        if ($this->method() == 'POST') {
+            $validator->after(function ($validator) {
+                if ($this->checkIfExistValue()) {
+                    $validator->errors()->add('display_name', 'Tên Danh Mục Đã Tồn Tại');
+                }
+            });
+        }
     }
-    public function checkIfExistValue()
+
+    public
+    function checkIfExistValue()
     {
         $display_name = Input::get('display_name');
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
         $path = preg_replace('/\s+/', ' ', $path);
         $path = str_replace(' ', '-', $path);
-        if (DanhMuc::where('path', '=',  $path)->exists()) {
+        if (DanhMuc::where('path', '=', $path)->exists()) {
             return 1 == 1;
         } else {
             return 0 == 1;

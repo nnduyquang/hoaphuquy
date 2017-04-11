@@ -71,8 +71,8 @@
                                         <div class="btn btn-primary">
                                             <a href="{{URL::to('/danh-muc/'.$splq->pathdanhmuc.'/'.$splq->path)}}">Xem
                                                 Chi
-                                                Tiết</a>
-                                        </div>
+                                                Tiết
+                                        </div></a>
                                     </div>
                                 </div>
                             @endforeach

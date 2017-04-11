@@ -28,7 +28,6 @@
             <th>Hình Sản Phẩm</th>
             <th>Giá</th>
             <th>Danh Mục</th>
-            <th>Tác Giả</th>
             <th width="280px">Action</th>
         </tr>
         </thead>
@@ -47,8 +46,7 @@
                         Liên Hệ Để Biết Giá
                     @endif
                 </td>
-                <td>{{ $sanpham->danhmucs->display_name }}</td>
-                <td>{{ $sanpham->users->name }}</td>
+                <td>{{ $sanpham->tendanhmuc }}</td>
                 <td>
                     @permission(('sanpham-edit'))
                     <a class="btn btn-primary" href="{{ route('sanphams.edit',$sanpham->id) }}">Edit</a>

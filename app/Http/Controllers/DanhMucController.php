@@ -45,6 +45,7 @@ class DanhMucController extends Controller
         $display_name = $request->input('display_name');
         $danhmuc->display_name = $display_name;
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
+        $path = preg_replace('/\W/', ' ', $path);
         $path = preg_replace('/\s+/', ' ', $path);
         $path = str_replace(' ', '-', $path);
         $danhmuc->path = $path;
@@ -91,6 +92,7 @@ class DanhMucController extends Controller
         $display_name = $request->input('display_name');
         $danhmuc->display_name = $display_name;
         $path = vn_str_co_dau_thanh_khong_dau($display_name);
+        $path = preg_replace('/\W/', ' ', $path);
         $path = preg_replace('/\s+/', ' ', $path);
         $path = str_replace(' ', '-', $path);
         $danhmuc->path = $path;

@@ -105,8 +105,8 @@ body {
 }
 
 .brand img {
-  width: 250px;
-  height: 100%;
+  width: 160px;
+  height: 90px;
 }
 
 .menu-right {
@@ -124,6 +124,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.phone-call {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 9;
 }
 
 .nav {
@@ -742,6 +751,7 @@ body {
 #wrap-san-pham-lien-quan .wrap-san-pham-danh-muc .list-content .btn-primary a {
   text-decoration: none;
   color: white;
+  display: block;
 }
 
 #wrap-san-pham-lien-quan .wrap-san-pham-danh-muc .list-content .btn-primary:hover {
