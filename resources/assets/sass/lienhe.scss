@@ -1,0 +1,37 @@
+#lienhe {
+  h3 {
+    text-transform: uppercase;
+    color: #2ECC71;
+    margin-bottom: 20px;
+  }
+  li {
+  font-size: 25px;
+  }
+  li.dia-chi {
+    position: relative;
+    &:before {
+      font-family: "FontAwesome";
+      position: absolute;
+      content: "\f015";
+      left: -30px;
+    }
+  }
+  li.dien-thoai {
+    position: relative;
+    &:before {
+      font-family: "FontAwesome";
+      position: absolute;
+      content: "\f095";
+      left: -30px;
+    }
+  }
+  li.email {
+    position: relative;
+    &:before {
+      font-family: "FontAwesome";
+      position: absolute;
+      content: "\f003";
+      left: -30px;
+    }
+  }
+}

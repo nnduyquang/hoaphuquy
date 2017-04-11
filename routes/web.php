@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 Route::get('/', 'SanPhamController@getSanPhamTrangChu');
 Route::get('/gioi-thieu', 'TrangController@showTrangGioiThieu');
+Route::get('/lien-he', function(){
+    return view('frontend.lienhe.index');
+});
 Route::get('/danh-muc/{path}', 'SanPhamController@getAllSanPhamByDanhMuc');
 Route::get('/danh-muc/{path1}/{path2}', 'SanPhamController@getSanPhamByPathSanPham');
 Route::get('/danh-muc/quan-ao-nam/quan-tay-dai', function () {

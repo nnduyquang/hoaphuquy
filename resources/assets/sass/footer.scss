@@ -3,6 +3,8 @@
   padding: 20px 0 10px;
   #thong-tin-lien-he {
     color: white;
+    text-align: center;
+    display: block;
     h3 {
       text-transform: uppercase;
       font-weight: bold;
@@ -15,33 +17,33 @@
         text-transform: uppercase;
         font-weight: bold;
       }
-      li.dia-chi{
-        position: relative;
-        &:before{
-          font-family: "FontAwesome";
-          position: absolute;
-          content: "\f015";
-          left: -25px;
-        }
-      }
-      li.so-dien-thoai{
-        position: relative;
-        &:before{
-          font-family: "FontAwesome";
-          position: absolute;
-          content: "\f095";
-          left: -25px;
-        }
-      }
-      li.email{
-        position: relative;
-        &:before{
-          font-family: "FontAwesome";
-          position: absolute;
-          content: "\f003";
-          left: -25px;
-        }
-      }
+      //li.dia-chi{
+      //  position: relative;
+      //  &:before{
+      //    font-family: "FontAwesome";
+      //    position: absolute;
+      //    content: "\f015";
+      //    left: -25px;
+      //  }
+      //}
+      //li.so-dien-thoai{
+      //  position: relative;
+      //  &:before{
+      //    font-family: "FontAwesome";
+      //    position: absolute;
+      //    content: "\f095";
+      //    left: -25px;
+      //  }
+      //}
+      //li.email{
+      //  position: relative;
+      //  &:before{
+      //    font-family: "FontAwesome";
+      //    position: absolute;
+      //    content: "\f003";
+      //    left: -25px;
+      //  }
+      //}
     }
   }
   .copyright{
@@ -49,6 +51,7 @@
     text-align: center;
     color: white;
     text-transform: uppercase;
+    font-size: 14px;
     a{
       text-decoration: none;
       color: #00AFEF;

@@ -4,9 +4,9 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Smartlinks</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title>Cửa Hàng Phú Quý</title>
+    <meta name="keywords" content="day curoa, dây curoa, máy hàn, may han, buly, bù lon, ốc vít">
+    <meta name="description" content="Chuyên Cung Cấp Dây Curoa, Buly, Bù Lon Ốc Vít Các Loại, Máy Hàn Motor, Hàn Cắt Gió Đá, Máy Bơm Các Loại">
     <meta name="viewport" content="width=device-width">
     {{ Html::style('css/app.css') }}
     {{ Html::style('css/frontend.css') }}

@@ -15,7 +15,7 @@
     <div class="row">
         <div class="hover14 column">
             <div>
-                <figure><img src="http://nxworld.net/codepen/css-image-hover-effects/pic01.jpg"/></figure>
+                <figure>{{ Html::image('images/temp/'.$cauhinh->hinh,'',array('class'=>'')) }}</figure>
             </div>
         </div>
     </div>

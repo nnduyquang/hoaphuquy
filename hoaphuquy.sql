@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2017 at 01:46 AM
+-- Generation Time: Apr 11, 2017 at 12:38 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -42,8 +42,8 @@ CREATE TABLE `cauhinhs` (
 --
 
 INSERT INTO `cauhinhs` (`id`, `hinh`, `noidung`, `order`, `user_id`, `created_at`, `updated_at`, `name`) VALUES
-(1, 'Novalandlakevie_1491842664212.jpg', NULL, '1', 3, '2017-04-10 08:53:49', '2017-04-10 09:44:24', 'Logo'),
-(2, 'Novalandlakevie_1491842693030.jpg', NULL, '2', 3, '2017-04-10 08:53:49', '2017-04-10 09:44:53', 'Hình Trang Chủ Trái'),
+(1, 'logophuquy_1491885268670.png', NULL, '1', 3, '2017-04-10 08:53:49', '2017-04-10 21:34:28', 'Logo'),
+(2, 'left_1491884877978.jpg', NULL, '2', 3, '2017-04-10 08:53:49', '2017-04-10 21:27:57', 'Hình Trang Chủ Trái'),
 (3, NULL, '<div class="col-md-6">\r\n                        <div id="thong-tin-lien-he">\r\n                            <h3>Thông Tin Liên Hệ</h3><h3><b>Cửa Hàng Phú Quý</b></h3><ul><li class="dia-chi">Địa Chỉ: 135 Hải Thượng Lãng Ông, P.10, Q.5 - TPHCM<br></li><li class="so-dien-thoai">Số Điện Thoại: 08.38578 486 - 0937.539.663 - 0908.871.315<br></li><li class="email">Email: cuahangphuquy135@gmail.com</li></ul>\r\n                        </div>\r\n                    </div><p><br></p>', '3', 3, '2017-04-10 08:53:49', '2017-04-10 09:39:26', 'Liên Hệ');
 
 -- --------------------------------------------------------
@@ -345,11 +345,11 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `display_name`, `anhslider`, `chuthich`, `order`, `user_id`, `created_at`, `updated_at`) VALUES
-(6, '67416550_1491649297924.jpg', '67416550_1491649297924.jpg', NULL, '1', 3, '2017-04-08 04:01:37', '2017-04-08 04:01:37'),
-(7, '1116_1491649369336.jpg', '1116_1491649369336.jpg', NULL, '3', 3, '2017-04-08 04:02:49', '2017-04-08 04:02:54'),
-(8, '173497971015536_1491649879940.jpg', '173497971015536_1491649879940.jpg', NULL, '1', 3, '2017-04-08 04:11:19', '2017-04-08 04:11:19'),
-(9, '3_1491649894270.jpg', '3_1491649894270.jpg', NULL, '1', 3, '2017-04-08 04:11:34', '2017-04-08 04:11:34'),
-(10, '1_1491650011678.jpg', '1_1491650011678.jpg', NULL, '1', 3, '2017-04-08 04:13:31', '2017-04-08 04:13:31');
+(6, 'slide5_1491894292510.jpg', 'slide5_1491894292510.jpg', NULL, '1', 3, '2017-04-08 04:01:37', '2017-04-11 00:04:52'),
+(7, 'slide4_1491894283384.jpg', 'slide4_1491894283384.jpg', NULL, '3', 3, '2017-04-08 04:02:49', '2017-04-11 00:04:43'),
+(8, 'slide3_1491894273886.jpg', 'slide3_1491894273886.jpg', NULL, '1', 3, '2017-04-08 04:11:19', '2017-04-11 00:04:33'),
+(9, 'slide2_1491894249697.jpg', 'slide2_1491894249697.jpg', NULL, '1', 3, '2017-04-08 04:11:34', '2017-04-11 00:04:09'),
+(10, 'slide1_1491894239806.jpg', 'slide1_1491894239806.jpg', NULL, '1', 3, '2017-04-08 04:13:31', '2017-04-11 00:03:59');
 
 -- --------------------------------------------------------
 
@@ -395,7 +395,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'nnduyquang', 'nnduyquang@gmail.com', '$2y$10$TZ//603aJQTzgba6EBcQGeeK2Fu3SU76RegecPLjcuJrRjy2hONo2', 'MNJCQfMtSlLjtPybNf7s7E7MnOEheIeeudVamIPpzDQTEhehYP7XpsRj4p02', '2017-04-02 02:27:09', NULL),
+(1, 'nnduyquang', 'nnduyquang@gmail.com', '$2y$10$TZ//603aJQTzgba6EBcQGeeK2Fu3SU76RegecPLjcuJrRjy2hONo2', '834GnH7jX7g3T10YUIsyjNYWCsXgeEwvFZb6vHJnwKzV4TI70YIyMo1jg2Ci', '2017-04-02 02:27:09', NULL),
 (3, 'Quản Trị', 'quantri@cuahangphuquy.com', '$2y$10$JgzOsQL/k6lkXziRV56zTeOmNCCsmbcUUJoIP3SAm8dZk1IgCkfTi', NULL, '2017-04-08 03:48:16', '2017-04-08 03:48:16');
 
 --
