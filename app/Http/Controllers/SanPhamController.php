@@ -192,7 +192,7 @@ class SanPhamController extends Controller
     {
         $sanphammois = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
             ->orderBy('sanphams.id', 'DESC')->limit(6)->get();
-        $danhmucs = DanhMuc::orderBy('id', 'DESC')->limit(3)->get();
+        $danhmucs = DanhMuc::whereIn('id',[6,9,20])->orderBy('id', 'DESC')->limit(3)->get();
         $sanphamtheodanhmucs = [];
         foreach ($danhmucs as $key => $danhmuc) {
             $sanphams = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
