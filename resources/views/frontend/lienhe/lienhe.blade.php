@@ -5,7 +5,7 @@
                 <h3>Cửa Hàng Phú Quý</h3>
                 <ul>
                     <li class="dia-chi">Địa Chỉ: 135 Hải Thượng Lãn Ông . P.10 . Q.5 TPHCM</li>
-                    <li class="dien-thoai">Số Điện Thoại: 08.38578 486 - 0937.539.663 - 0908.871.315</li>
+                    <li class="dien-thoai">Số Điện Thoại: 08.38578 486 - 0937.539.663 - 0909.095.553</li>
                     <li class="email">Email: cuahangphuquy135@gmail.com</li>
                 </ul>
             </div>
