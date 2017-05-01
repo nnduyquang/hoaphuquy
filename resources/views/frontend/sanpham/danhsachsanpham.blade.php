@@ -5,10 +5,12 @@
             <div class="container">
                 <div class="row">
                     <div class="breadcrumb-info-title">
-                        <h3>{{$sanphams[0]->tendanhmuc}}</h3>
-                        <div class="blog-slug">
-                            <a href="{{URL::to('/')}}">Trang Chủ&nbsp</a>/&nbsp{{$sanphams[0]->tendanhmuc}}
-                        </div>
+                        @if(count($sanphams)!=0)
+                            <h3>{{$sanphams[0]->tendanhmuc}}</h3>
+                            <div class="blog-slug">
+                                <a href="{{URL::to('/')}}">Trang Chủ&nbsp</a>/&nbsp{{$sanphams[0]->tendanhmuc}}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

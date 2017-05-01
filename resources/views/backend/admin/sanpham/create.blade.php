@@ -67,7 +67,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Thông Tin Sản Phẩm:</strong>
-                {!! Form::textarea('noidung',null, array('placeholder' => 'Thông Tin Sản Phẩm','id'=>'summernote','class' => 'form-control','rows'=>'5','style'=>'resize:none')) !!}
+                {!! Form::textarea('noidung',$cauhinhs->noidung, array('placeholder' => 'Thông Tin Sản Phẩm','id'=>'summernote','class' => 'form-control','rows'=>'5','style'=>'resize:none')) !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

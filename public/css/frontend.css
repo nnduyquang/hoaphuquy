@@ -192,8 +192,8 @@ body {
 
 #gift .icon-item {
   background-color: #2ECC71;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   position: relative;
   margin-right: 10px;
 }
@@ -219,7 +219,7 @@ body {
 }
 
 #gift .content-item .entry-title {
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 0 5px 0;
   padding: 0;
   letter-spacing: -0.03em;
@@ -236,6 +236,7 @@ body {
 #gift .content-item .description-item {
   margin-bottom: 10px;
   clear: both;
+  font-size: 12px;
 }
 
 @media screen and (max-width: 991px) {
@@ -348,7 +349,7 @@ body {
 
 #san-pham-moi .wrap-san-pham .list-content a img {
   width: 100%;
-  height: 200px;
+  height: 150px;
 }
 
 #san-pham-moi .wrap-san-pham .list-content h2 {

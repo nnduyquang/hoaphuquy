@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CauHinh;
 use App\DanhMuc;
 use App\Http\Requests\SanPhamRequest;
 use App\SanPham;
@@ -35,7 +36,8 @@ class SanPhamController extends Controller
     public function create()
     {
         $danhmucs = DanhMuc::all()->sortBy('id');
-        return view('backend.admin.sanpham.create', compact(['roles', 'danhmucs']));
+        $cauhinhs=CauHinh::select('noidung')->where('id',3)->first();
+        return view('backend.admin.sanpham.create', compact(['roles', 'danhmucs','cauhinhs']));
     }
 
     /**
@@ -191,8 +193,8 @@ class SanPhamController extends Controller
     public function getSanPhamTrangChu()
     {
         $sanphammois = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
-            ->orderBy('sanphams.id', 'DESC')->limit(6)->get();
-        $danhmucs = DanhMuc::orderBy('id', 'DESC')->limit(3)->get();
+            ->orderBy('sanphams.id', 'DESC')->limit(12)->get();
+        $danhmucs = DanhMuc::orderBy('id', 'DESC')->whereIn('id',[6,9,15])->get();
         $sanphamtheodanhmucs = [];
         foreach ($danhmucs as $key => $danhmuc) {
             $sanphams = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')

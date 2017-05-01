@@ -32,7 +32,7 @@ $(document).ready(function () {
                 responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 4,
+                        slidesToShow: 6,
                         slidesToScroll: 1,
                     }
                 }, {

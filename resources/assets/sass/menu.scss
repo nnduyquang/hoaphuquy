@@ -75,8 +75,8 @@
   }
   .icon-item{
     background-color: #2ECC71;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     margin-right: 10px;
     &:after{
@@ -96,7 +96,7 @@
       padding: 0;
     }
     .entry-title {
-      font-size: 16px;
+      font-size: 14px;
       margin: 0 0 5px 0;
       padding: 0;
       letter-spacing: -0.03em;
@@ -111,6 +111,7 @@
     .description-item {
       margin-bottom: 10px;
       clear: both;
+      font-size: 12px;
     }
   }
 }
