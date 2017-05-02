@@ -67,8 +67,7 @@ class DanhMucRequest extends FormRequest
         }
     }
 
-    public
-    function checkIfExistValue()
+    public function checkIfExistValue()
     {
         $display_name = Input::get('display_name');
         $path = vn_str_co_dau_thanh_khong_dau($display_name);

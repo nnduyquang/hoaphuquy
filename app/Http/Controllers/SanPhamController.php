@@ -192,8 +192,7 @@ class SanPhamController extends Controller
 
     public function getSanPhamTrangChu()
     {
-        $sanphammois = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')
-            ->orderBy('sanphams.id', 'DESC')->limit(12)->get();
+        $sanphammois = SanPham::select('sanphams.display_name', 'sanphams.path', 'danhmucs.path as pathdanhmuc', 'sanphams.anhsanpham')->join('danhmucs', 'sanphams.danhmuc_id', '=', 'danhmucs.id')->whereIn('sanphams.id',[1,9,59,34,74,73,36,52,43,50,42,55])->get();
         $danhmucs = DanhMuc::orderBy('id', 'DESC')->whereIn('id',[6,9,15])->get();
         $sanphamtheodanhmucs = [];
         foreach ($danhmucs as $key => $danhmuc) {
