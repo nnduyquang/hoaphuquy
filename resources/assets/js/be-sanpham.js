@@ -18,7 +18,6 @@ $('input[type=checkbox][name=lienhegia]').change(function () {
     else {
         $('input[name=price]').removeAttr("disabled");
     }
-    //Here do the stuff you want to do when 'unchecked'
 });
 $('#dataSanPham').DataTable( {
     autoFill: true
